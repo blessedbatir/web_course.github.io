@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>КУРС "ВЕБ-ПРОГРАММИРОВАНИЕ</title>
+    <meta name="description" content="Освойте компьютер за 15 недель. Практический курс. Microsoft office, HTML, CSS, JavaScript.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        .cta-btn {
+            background: #2563eb;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2563eb;
+            padding: 15px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 13px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .code-preview {
+            background: #1e293b;
+            border-radius: 8px;
+            padding: 20px;
+            color: #e2e8f0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .code-line {
+            margin-bottom: 5px;
+        }
+
+        .keyword { color: #f472b6; }
+        .string { color: #10b981; }
+        .function { color: #3b82f6; }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .feature p {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Program */
+        .program {
+            padding: 80px 0;
+        }
+
+        .program-grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        .module {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 30px;
+            align-items: center;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 4px solid #2563eb;
+        }
+
+        .module-number {
+            background: #2563eb;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .module-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1e293b;
+        }
+
+        .module-content p {
+            color: #64748b;
+            margin-bottom: 15px;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .module-duration {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Reviews */
+        .reviews {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .review {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            color: #64748b;
+            font-size: 14px;
+        }
+
+        .salary {
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: #1e293b;
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-box {
+            background: white;
+            color: #1e293b;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .price-note {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .price-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .price-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .price-features li:before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .enrollment-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #2563eb;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #1d4ed8;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e293b;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #94a3b8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 20px;
+            text-align: center;
+            color: #94a3b8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .module {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .features {
+                padding: 60px 0;
+            }
+
+            .program {
+                padding: 60px 0;
+            }
+
+            .reviews {
+                padding: 60px 0;
+            }
+
+            .cta-section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-40 { margin-bottom: 40px; }
+
+        /* Simple animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">WEB_PROGRAMMING</a>
+                <ul class="nav-links">
+                    <li><a href="#program">Программа</a></li>
+                    
+                    <li><a href="#enrollmentForm">Контакты</a></li>
+                </ul>
+                <a href="#cta" class="cta-btn">Записаться</a>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1>КУРС ВЕБ-ПРОГРАММИРОВАНИЯ ЗА 15 НЕДЕЛЬ</h1>
+                    <p>Практический курс веб-разработки с . Изучите JavaScript, React, Node.js.
+                      Курс подходит и для начинающих, и для тех, кто хочет углубить знания.
+                    </p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">недель</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">92%</span>
+                            <span class="stat-label">трудоустройства</span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="hero-buttons">
+                        <a href="#cta" class="btn-primary">Записаться на курс</a>
+                        <a href="#program" class="btn-secondary">Смотреть программу</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="code-preview">
+                        <div class="code-line"><span class="keyword">const</span> <span class="function">app</span> = <span class="function">express</span>();</div>
+                        <div class="code-line"></div>
+                        <div class="code-line"><span class="function">app</span>.<span class="function">get</span>(<span class="string">'/api/users'</span>, (req, res) => {</div>
+                        <div class="code-line">  <span class="function">res</span>.<span class="function">json</span>({ users: [] });</div>
+                        <div class="code-line">});</div>
+                        <div class="code-line"></div>
+                        <div class="code-line"><span class="function">app</span>.<span class="function">listen</span>(3000);</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему наш курс</h2>
+                <p>Практический подход к изучению веб-разработки</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature fade-in">
+                    <div class="feature-icon">💼</div>
+                    <h3>Практика</h3>
+                    <p>80% времени - написание кода.</p>
+                </div>
+                
+                <div class="feature fade-in">
+                    <div class="feature-icon">👨‍🏫</div>
+                    <h3>Менторство</h3>
+                    <p>Персональные ревью кода и помощь в решении задач от опытных разработчиков.</p>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="program" id="program">
+        <div class="container">
+            <div class="section-title">
+                <h2>Программа курса</h2>
+                <p>15 недель структурированного обучения</p>
+            </div>
+            
+            <div class="program-grid">
+                <div class="module fade-in">
+                    <div class="module-number">1</div>
+                    <div class="module-content">
+                        <h3>Основы компьютера</h3>
+                        <p>Основы компьютера с 0 до 100.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">WINDOWS</span>
+                            <span class="tech-tag">РАБОТА С ФАЙЛАМИ</span>
+                            <span class="tech-tag">РАБОТА С ОФИСНЫМИ ПРОГРАММАМИ</span>
+                            <span class="tech-tag">ПРАКТИЧЕСКИЕ ЗАДАНИЯ</span>
+                        </div>
+                    </div>
+                    <div class="module-duration">2 недели</div>
+                </div>
+
+                <div class="module fade-in">
+                    <div class="module-number">2</div>
+                    <div class="module-content">
+                        <h3>Microsoft office углубленно</h3>
+                        <p>WORD, POWERPOINT, EXCEL. Полное изучение Microsoft office. Работа с электронной документации.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Powerpoint: Современный дизайн и анимации. </span>
+                            <span class="tech-tag">Excel: Работа с таблицами, табели, электронной отчетностью.</span>
+                            <span class="tech-tag">ПРАКТИЧЕСКИЕ ЗАДАНИЯ</span>
+                            
+                        </div>
+                    </div>
+                    <div class="module-duration">3 недели</div>
+                </div>
+
+                <div class="module fade-in">
+                    <div class="module-number">3</div>
+                    <div class="module-content">
+                        <h3>Основы HTML</h3>
+                        <p>Изучение основ HTML: теги, работа с Visual Studio code.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Html</span>
+                            <span class="tech-tag">Visual Studio code</span>
+                            <span class="tech-tag">Основные теги</span>
+                            <span class="tech-tag">Структура html</span>
+                        </div>
+                    </div>
+                    <div class="module-duration">3 недель</div>
+                </div>
+
+                <div class="module fade-in">
+                    <div class="module-number">4</div>
+                    <div class="module-content">
+                        <h3>Основы CSS</h3>
+                        <p>Синтаксис CSS, селекторы.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Синтаксис CSS</span>
+                            <span class="tech-tag">Селекторы CSS</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">Шаблоны</span>
+                        </div>
+                    </div>
+                    <div class="module-duration">3 недель</div>
+                </div>
+
+                <div class="module fade-in">
+                    <div class="module-number">5</div>
+                    <div class="module-content">
+                        <h3>Основы Javascript</h3>
+                        <p>Основы Javascript, ES6.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">ES6</span>
+                            <span class="tech-tag">Модули</span>
+                            <span class="tech-tag">Практические задания</span>
+                        </div>
+                    </div>
+                    <div class="module-duration">3 недели</div>
+                </div>
+
+                <div class="module fade-in">
+                    <div class="module-number">6</div>
+                    <div class="module-content">
+                        <h3>Финальный проект</h3>
+                        <p>Разработка полноценного веб-сайта.</p>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Full Stack</span>
+                            <span class="tech-tag">Portfolio</span>
+                            <span class="tech-tag">Code Review</span>
+                        </div>
+                    </div>
+                    <div class="module-duration">1 недели</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    </section>
+
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <h2>Начните карьеру разработчика</h2>
+            <p>Запишитесь на курс </p>
+            
+            <div class="price-box">
+                <div class="price"></div>
+                <p class="price-note"></p>
+                
+                <ul class="price-features">
+                    <li>15 недель обучения</li>
+                    
+                    <li>Персональное менторство</li>
+                          <li>Сертификат о прохождении</li>
+                    <li>Пожизненный доступ к материалам</li>
+                </ul>
+            </div>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="enrollment-form" id="enrollmentForm">
+               <input type="hidden" name="access_key" value="b3198f88-8c25-4cfc-8a8e-9090c0f9bd68">
+                <div class="form-group">
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Опыт в программировании</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Выберите вариант</option>
+                        <option value="none">Без опыта</option>
+                        <option value="basic">Базовые знания</option>
+                        <option value="some">Есть опыт</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Записаться на курс</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>WEB_PROGRAMMING</h3>
+                    <p>Практический курс веб-разработки. Станьте востребованным разработчиком за 15 недель.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Курс</h3>
+                    <p><a href="#program">Программа обучения</a></p>
+                    
+                    
+                </div>
+                
+               
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <a href="tel:+998930957778">+998930957778</a>
+                    <p>Email: info@webdev-course.ru</p>
+                    <p>Адрес: Нукус</p>
+                    <p>Время работы: Пн-Пт 9:00-18:00</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 WEB_PROGRAMMING Course. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Простая навигация
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+        });
+
+        // Простые анимации появления
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Обработка формы
+        document.getElementById('enrollmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            // Показываем процесс отправки
+            submitBtn.textContent = 'Отправляем...';
+            submitBtn.disabled = true;
+            
+            // Имитируем отправку
+            setTimeout(() => {
+                submitBtn.textContent = 'Спасибо! Мы свяжемся с вами';
+                submitBtn.style.background = '#10b981';
+                
+                // Возвращаем кнопку в исходное состояние через 3 секунды
+                setTimeout(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.style.background = '';
+                    this.reset();
+                }, 3000);
+            }, 1000);
+        });
+
+        // Мобильное меню (базовая реализация)
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Фиксация хедера при скролле
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Простая валидация формы
+        const form = document.getElementById('enrollmentForm');
+        const inputs = form.querySelectorAll('input[required], select[required]');
+        
+        inputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value.trim() === '') {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = '#10b981';
+                }
+            });
+        });
+
+        // Маска для телефона
+      const phoneInput = document.getElementById('phone');
+
+phoneInput.addEventListener('input', function(e) {
+    const input = e.target;
+    const selectionStart = input.selectionStart;
+    const selectionEnd = input.selectionEnd;
+
+    // Убираем всё, кроме цифр
+    let value = input.value.replace(/\D/g, '');
+
+    // Гарантируем, что всегда начинается с 998
+    if (!value.startsWith("998")) {
+        value = "998" + value.replace(/^998/, "");
+    }
+
+    // Ограничиваем максимум 12 символами (998 + 9 цифр)
+    value = value.substring(0, 12);
+
+    // Формируем красивую маску
+    let formatted = "+998";
+    if (value.length > 3) {
+        formatted += " (" + value.substring(3, 5);
+    }
+    if (value.length >= 5) {
+        formatted += ") " + value.substring(5, 8);
+    }
+    if (value.length >= 8) {
+        formatted += "-" + value.substring(8, 10);
+    }
+    if (value.length >= 10) {
+        formatted += "-" + value.substring(10, 12);
+    }
+
+    // Обновляем значение
+    input.value = formatted;
+
+    // Восстанавливаем положение курсора
+    let newCursorPos = selectionStart;
+    if (selectionStart === selectionEnd) {
+        newCursorPos = input.value.length;
+    }
+    input.setSelectionRange(newCursorPos, newCursorPos);
+});
+        });
+
+        // Плавное изменение статистики
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            function updateCounter() {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            }
+            updateCounter();
+        }
+
+        // Запуск анимации счетчиков при появлении героя
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = document.querySelectorAll('.stat-number');
+                    animateCounter(statNumbers[0], 15);
+                    animateCounter(statNumbers[1], 92);
+                    animateCounter(statNumbers[2], 120);
+                    heroObserver.disconnect();
+                }
+            });
+        });
+
+        heroObserver.observe(document.querySelector('.hero'));
+
+        // Простое отслеживание скролла для аналитики
+        let scrollDepth = 0;
+        window.addEventListener('scroll', () => {
+            const currentDepth = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+            if (currentDepth > scrollDepth && currentDepth % 25 === 0) {
+                scrollDepth = currentDepth;
+                // Здесь можно отправить данные в аналитику
+                console.log('Scroll depth:', scrollDepth + '%');
+            }
+        });
+
+        // Проверка поддержки браузером
+        if (!('IntersectionObserver' in window)) {
+            // Fallback для старых браузеров
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }
+
+        // Предотвращение отправки формы с пустыми полями
+        form.addEventListener('submit', function(e) {
+            let isValid = true;
+            inputs.forEach(input => {
+                if (input.value.trim() === '') {
+                    input.style.borderColor = '#ef4444';
+                    isValid = false;
+                }
+            });
+            
+            if (!isValid) {
+                e.preventDefault();
+                alert('Пожалуйста, заполните все обязательные поля');
+                return;
+            }
+        });
+    </script>
+</body>
+</html>
